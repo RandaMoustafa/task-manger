@@ -30,3 +30,16 @@ Route::get('1/tasks/{tasks}', [\App\Http\Controllers\API\V1\TaskController::clas
 Route::post('1/tasks', [\App\Http\Controllers\API\V1\TaskController::class,'store'])->name('store');
 Route::put('1/tasks/{tasks}', [\App\Http\Controllers\API\V1\TaskController::class,'update'])->name('update');
 Route::delete('1/tasks/{tasks}',[\App\Http\Controllers\API\V1\TaskController::class,'destroy'])->name('destroy');
+
+
+Route::get('1/tag', [App\Http\Controllers\API\V1\TagController::class, 'index'])->name('index');
+Route::get('1/tag/{tag}', [App\Http\Controllers\API\V1\TagController::class,'show'])->name('show');
+Route::post('1/tag' , [App\Http\Controllers\API\V1\TagController::class, 'store'] )->name('store');
+Route::put('1/tag/{tag}', [App\Http\Controllers\API\V1\TagController::class,'update'])->name('update');
+Route::delete('1/tag/{tag}', [App\Http\Controllers\API\V1\TagController::class,'destroy'])->name('destroy');
+
+Route::get('1/project', [App\Http\Controllers\API\V1\ProjectController::class,'index'])->name('index');
+Route::get('1/project/{project}', [App\Http\Controllers\API\V1\ProjectController::class, 'show'])->name('show');
+Route::post('1/project', [App\Http\Controllers\API\V1\ProjectController::class,'store'])->name('store');
+Route::put('1/project/{project}', [App\Http\Controllers\API\V1\ProjectController::class, 'update'])->name('update');
+Route::delete('1/project/{project}', [App\Http\Controllers\API\V1\ProjectController::class, 'destroy'])->name('destroy');
