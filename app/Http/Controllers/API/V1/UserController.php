@@ -4,7 +4,12 @@ namespace App\Http\Controllers\API\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserNewRequest;
+use App\Http\Resources\UserListResource;
+use App\Http\Resources\UserShowResource;
 use App\Models\User;
+use App\services\Responsejson;
+use App\services\UserListResponse;
+use App\services\UserShoeResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades;
 
@@ -13,7 +18,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        return User::all();
+        return UserListResource::collection(User::all());;
 
     }
    /* public function show($id)
@@ -23,8 +28,13 @@ class UserController extends Controller
     }*/
     public function show(User $user)
     {
-        return $user;
-
+       // $user=new UserShoeResponse($user);
+       // return $user->toArray();
+       // return $this-> jsonResponse((new UserShoeResponse($user)));
+  //  }
+  //  private function jsonResponse(Responsejson $responsejson){
+       // return $responsejson->toArray();
+        return (new UserShowResource($user));
     }
     public function store(UserNewRequest $request){
       /*  $request->validate([
@@ -48,8 +58,7 @@ class UserController extends Controller
      //   $data['password']= Hash::make($request->input('password'));
         return User::create($data);
     }
-    public function update(Request $request, User $user)
-    {
+    public function update(Request $request, User $user){
         $user->update($request->all());
         return $user;
     }
@@ -58,4 +67,5 @@ class UserController extends Controller
         return 'ok';
 
     }
+
 }

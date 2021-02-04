@@ -54,6 +54,23 @@ class User extends Authenticatable
     {
         $this->attributes['name']= 'Mr.' . $name ;
     }*/
+    public function toArray()
+    {
+        return [
+            'id'=> $this -> id ,
+            'name'=> $this-> name,
+            'phone'=> $this -> phone?? "",
+            'created_from'=> $this->created_at ? $this->created_at->diffForHumans() : ""
+        ];
+    }
+    public function getPhoneAttribute()
+    {
+        return $this->attributes['phone']?? "";
+    }
+    public function getCreatedFromAttribute()
+    {
+        return $this->attributes['created_at']? $this->created_at->diffForHumans(): "";
+    }
 
 
 }

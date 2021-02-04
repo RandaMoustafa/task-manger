@@ -13,7 +13,7 @@ class UserNewRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class UserNewRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required'
+            'name'=>'required',
+            'email'=> 'email is required',
+            'password'=> 'password is required'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'phone.unique' => 'please choose another phone number',
+            'name.required'=> 'Name is required...!'
         ];
     }
 }

@@ -22,9 +22,10 @@ Route::group([
     Route::get('/','UserController@index')->name('index');
     Route::get('/{user}','UserController@show')->name('show');
     Route::post('/','UserController@store')->name('store');
-    Route::put('/{user}','UserController@update')->name('update');
+    Route::put('/{user}', 'UserController@update')->name('update');
     Route::delete('/{user}','UserController@destroy')->name('destroy');
 });
+
 Route::get('1/tasks',[\App\Http\Controllers\API\V1\TaskController::class, 'index'])->name('index');
 Route::get('1/tasks/{tasks}', [\App\Http\Controllers\API\V1\TaskController::class, 'show'])->name('show');
 Route::post('1/tasks', [\App\Http\Controllers\API\V1\TaskController::class,'store'])->name('store');
