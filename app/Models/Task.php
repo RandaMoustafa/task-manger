@@ -13,4 +13,5 @@ class Task extends Model
         'details',
         'due'
     ];
+
 }

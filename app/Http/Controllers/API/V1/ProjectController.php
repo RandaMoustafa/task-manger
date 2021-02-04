@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProjectListResource;
+use App\Http\Resources\ProjectShowResource;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
     public function index(){
-        return Project::all();
+        return ProjectListResource::collection(Project::all());
     }
     public function show(Project $project){
-        return $project;
+        return (new ProjectShowResource($project));
     }
     public function store(Request $request){
         $data = $request->all();
