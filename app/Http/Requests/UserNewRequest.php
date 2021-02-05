@@ -33,7 +33,8 @@ class UserNewRequest extends FormRequest
     {
         return [
             'phone.unique' => 'please choose another phone number',
-            'name.required'=> 'Name is required...!'
+            'name.required'=> 'Name is required...!',
+            'email'=> 'Email is required'
         ];
     }
 }

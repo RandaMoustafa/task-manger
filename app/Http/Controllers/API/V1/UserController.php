@@ -7,11 +7,11 @@ use App\Http\Requests\UserNewRequest;
 use App\Http\Resources\UserListResource;
 use App\Http\Resources\UserShowResource;
 use App\Models\User;
-use App\services\Responsejson;
-use App\services\UserListResponse;
-use App\services\UserShoeResponse;
+//use App\services\Responsejson;
+//use App\services\UserListResponse;
+//use App\services\UserShoeResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades;
+//use Illuminate\Support\Facades;
 
 
 class UserController extends Controller
@@ -36,7 +36,7 @@ class UserController extends Controller
        // return $responsejson->toArray();
         return (new UserShowResource($user));
     }
-    public function store(UserNewRequest $request){
+    public function store(Request $request){
       /*  $request->validate([
             'name'=> 'required'
         ]);*/
