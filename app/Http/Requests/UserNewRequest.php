@@ -25,8 +25,8 @@ class UserNewRequest extends FormRequest
     {
         return [
             'name'=>'required',
-            'email'=> 'email is required',
-            'password'=> 'password is required'
+            'email'=> ' required',
+            'password'=> ' required'
         ];
     }
     public function messages()
